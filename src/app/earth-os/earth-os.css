@@ -1,0 +1,1202 @@
+/* ==========================================================================
+   EARTH OS — Design System
+   Visual Identity: Directly extracted from Akash Prajapati's Portfolio
+   Reference: https://akashprajapatiprofessionalportfoliov2.netlify.app/
+   Attributes: Premium, Futuristic, Minimal, Polished, Frosted Glass, Rounded Pills
+   Typography: Plus Jakarta Sans (Headings/Display), Inter (Body/UI), Monospace (Telemetry)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* ─── Portfolio Design Tokens (Dark Theme Default) ────────────────────────── */
+:root,
+[data-theme="dark"],
+.eos-root[data-theme="dark"] {
+  /* Typography */
+  --eos-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --eos-font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --eos-font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Primary Palette & Accents from Portfolio */
+  --eos-primary: #ffffff;
+  --eos-primary-hover: #00D1FF;
+  --eos-accent-cyan: #00D1FF;
+  --eos-accent-sky: #0ea5e9;
+  --eos-accent-blue: #2563eb;
+  --eos-accent-amber: #f59e0b;
+  --eos-accent-rose: #f43f5e;
+  --eos-accent-emerald: #10b981;
+
+  /* Deep Canvas Background (Pure Black Portfolio Baseline) */
+  --eos-bg-canvas: #000000;
+
+  /* Surface & Container Treatment (Signature Frosted Glass from Portfolio) */
+  --eos-surface-panel: rgba(10, 12, 16, 0.88);
+  --eos-surface-panel-border: rgba(255, 255, 255, 0.08);
+  --eos-surface-card: rgba(255, 255, 255, 0.035);
+  --eos-surface-card-hover: rgba(255, 255, 255, 0.075);
+  --eos-surface-card-border: rgba(255, 255, 255, 0.06);
+  --eos-surface-card-border-hover: rgba(255, 255, 255, 0.18);
+  --eos-surface-pill: rgba(255, 255, 255, 0.05);
+  --eos-surface-pill-hover: rgba(255, 255, 255, 0.10);
+  --eos-surface-pill-active: #ffffff;
+  --eos-surface-pill-active-text: #000000;
+
+  /* Text Hierarchy */
+  --eos-text-primary: #f5f5f5;
+  --eos-text-secondary: #cbd5e1;
+  --eos-text-tertiary: #9ca3af;
+  --eos-text-quaternary: #6b7280;
+
+  /* Borders & Outlines */
+  --eos-border-subtle: rgba(255, 255, 255, 0.06);
+  --eos-border-highlight: rgba(255, 255, 255, 0.12);
+  --eos-border-active: #00D1FF;
+
+  /* Elevation & Shadows from Portfolio */
+  --eos-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --eos-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.45);
+  --eos-shadow-lg: 0 16px 48px -8px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.06);
+  --eos-shadow-sheet: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  /* Signature Portfolio Corner Radii */
+  --eos-radius-full: 9999px;
+  --eos-radius-sheet: 28px;
+  --eos-radius-card: 18px;
+  --eos-radius-sm: 12px;
+  --eos-radius-xs: 8px;
+
+  /* Animation Easing Curve (Portfolio Signature) */
+  --eos-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --eos-topbar-height: 60px;
+
+  /* ─── Backwards-Compatible Material 3 Aliases ────────────────────────── */
+  --md-sys-color-surface: var(--eos-bg-canvas);
+  --md-sys-color-surface-container: var(--eos-surface-panel);
+  --md-sys-color-surface-container-low: var(--eos-surface-panel);
+  --md-sys-color-surface-container-high: var(--eos-surface-card);
+  --md-sys-color-surface-container-highest: var(--eos-surface-card-hover);
+  --md-sys-color-on-surface: var(--eos-text-primary);
+  --md-sys-color-on-surface-variant: var(--eos-text-secondary);
+  --md-sys-color-outline: var(--eos-text-tertiary);
+  --md-sys-color-outline-variant: var(--eos-border-subtle);
+  --md-sys-color-primary: var(--eos-accent-cyan);
+  --md-sys-color-on-primary: #000000;
+  --md-sys-color-primary-container: var(--eos-surface-pill-active);
+  --md-sys-color-on-primary-container: var(--eos-surface-pill-active-text);
+  --md-sys-color-secondary: var(--eos-text-secondary);
+  --md-sys-color-on-secondary: #000000;
+  --md-sys-color-secondary-container: var(--eos-surface-pill);
+  --md-sys-color-on-secondary-container: var(--eos-text-primary);
+  --md-sys-color-success: var(--eos-accent-emerald);
+  --md-sys-color-warning: var(--eos-accent-amber);
+  --md-sys-color-error: var(--eos-accent-rose);
+  --md-sys-elevation-1: var(--eos-shadow-sm);
+  --md-sys-elevation-2: var(--eos-shadow-md);
+  --md-sys-elevation-3: var(--eos-shadow-lg);
+  --md-sys-elevation-4: var(--eos-shadow-sheet);
+  --md-sys-shape-corner-small: var(--eos-radius-xs);
+  --md-sys-shape-corner-medium: var(--eos-radius-sm);
+  --md-sys-shape-corner-large: var(--eos-radius-card);
+  --md-sys-shape-corner-extra-large: var(--eos-radius-sheet);
+  --md-sys-shape-corner-full: var(--eos-radius-full);
+
+  /* Legacy Earth OS color names */
+  --eos-blue: #3b82f6;
+  --eos-cyan: #00D1FF;
+  --eos-green: #10b981;
+  --eos-yellow: #f59e0b;
+  --eos-orange: #f97316;
+  --eos-red: #f43f5e;
+  --eos-purple: #a855f7;
+  --eos-teal: #14b8a6;
+}
+
+/* ─── Portfolio Design Tokens (Light Theme) ───────────────────────────────── */
+[data-theme="light"],
+.eos-root[data-theme="light"] {
+  /* Canvas Background (Slate-50 Portfolio Light Baseline) */
+  --eos-bg-canvas: #f8fafc;
+
+  /* Surface & Container Treatment (Frosted White Glass from Portfolio) */
+  --eos-surface-panel: rgba(255, 255, 255, 0.88);
+  --eos-surface-panel-border: rgba(0, 0, 0, 0.08);
+  --eos-surface-card: rgba(255, 255, 255, 0.95);
+  --eos-surface-card-hover: #ffffff;
+  --eos-surface-card-border: rgba(0, 0, 0, 0.06);
+  --eos-surface-card-border-hover: rgba(0, 0, 0, 0.12);
+  --eos-surface-pill: rgba(0, 0, 0, 0.04);
+  --eos-surface-pill-hover: rgba(0, 0, 0, 0.07);
+  --eos-surface-pill-active: #0f172a;
+  --eos-surface-pill-active-text: #ffffff;
+
+  /* Text Hierarchy */
+  --eos-text-primary: #0f172a;
+  --eos-text-secondary: #334155;
+  --eos-text-tertiary: #64748b;
+  --eos-text-quaternary: #94a3b8;
+
+  /* Borders & Outlines */
+  --eos-border-subtle: rgba(0, 0, 0, 0.06);
+  --eos-border-highlight: rgba(0, 0, 0, 0.12);
+  --eos-border-active: #0284c7;
+
+  /* Elevation & Shadows from Portfolio */
+  --eos-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --eos-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.05);
+  --eos-shadow-lg: 0 16px 40px -8px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --eos-shadow-sheet: 0 20px 48px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.06);
+
+  /* Primary Palette in Light Mode */
+  --eos-primary: #0f172a;
+  --eos-primary-hover: #0284c7;
+  --eos-accent-cyan: #0284c7;
+  --eos-accent-sky: #0369a1;
+  --eos-accent-blue: #1d4ed8;
+  --eos-accent-amber: #d97706;
+  --eos-accent-rose: #e11d48;
+  --eos-accent-emerald: #059669;
+
+  /* Backwards-Compatible Material 3 Aliases for Light */
+  --md-sys-color-surface: var(--eos-bg-canvas);
+  --md-sys-color-surface-container: var(--eos-surface-panel);
+  --md-sys-color-surface-container-low: var(--eos-surface-panel);
+  --md-sys-color-surface-container-high: var(--eos-surface-card);
+  --md-sys-color-surface-container-highest: var(--eos-surface-card-hover);
+  --md-sys-color-on-surface: var(--eos-text-primary);
+  --md-sys-color-on-surface-variant: var(--eos-text-secondary);
+  --md-sys-color-outline: var(--eos-text-tertiary);
+  --md-sys-color-outline-variant: var(--eos-border-subtle);
+  --md-sys-color-primary: var(--eos-accent-cyan);
+  --md-sys-color-on-primary: #ffffff;
+  --md-sys-color-primary-container: var(--eos-surface-pill-active);
+  --md-sys-color-on-primary-container: var(--eos-surface-pill-active-text);
+  --md-sys-color-secondary: var(--eos-text-secondary);
+  --md-sys-color-on-secondary: #ffffff;
+  --md-sys-color-secondary-container: var(--eos-surface-pill);
+  --md-sys-color-on-secondary-container: var(--eos-text-primary);
+  --md-sys-color-success: var(--eos-accent-emerald);
+  --md-sys-color-warning: var(--eos-accent-amber);
+  --md-sys-color-error: var(--eos-accent-rose);
+  --md-sys-elevation-1: var(--eos-shadow-sm);
+  --md-sys-elevation-2: var(--eos-shadow-md);
+  --md-sys-elevation-3: var(--eos-shadow-lg);
+  --md-sys-elevation-4: var(--eos-shadow-sheet);
+}
+
+/* ─── Global Reset & Typography ───────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: var(--eos-font);
+  color: var(--eos-text-primary);
+  background: var(--eos-bg-canvas);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.eos-root {
+  font-family: var(--eos-font);
+  color: var(--eos-text-primary);
+}
+
+/* Signature Frosted Glass Class from Portfolio */
+.glass {
+  background: var(--eos-surface-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--eos-surface-card-border);
+  box-shadow: var(--eos-shadow-sm);
+  transition: background-color 0.4s var(--eos-ease), border-color 0.4s var(--eos-ease), transform 0.4s var(--eos-ease), box-shadow 0.4s var(--eos-ease);
+}
+
+.glass-hover {
+  transition: all 0.4s var(--eos-ease);
+}
+
+.glass-hover:hover {
+  transform: translateY(-2px);
+  background: var(--eos-surface-card-hover);
+  border-color: var(--eos-surface-card-border-hover);
+  box-shadow: var(--eos-shadow-md);
+}
+
+/* ─── Top App Bar & Search ────────────────────────────────────────────────── */
+.eos-topbar {
+  height: var(--eos-topbar-height);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  gap: 12px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.eos-topbar-content {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 12px;
+}
+
+/* Portfolio Brand Lockup Pill */
+.eos-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px 7px 8px;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-full);
+  box-shadow: var(--eos-shadow-sm);
+  cursor: pointer;
+  transition: all 0.3s var(--eos-ease);
+}
+
+.eos-brand-pill:hover {
+  transform: translateY(-1px);
+  border-color: var(--eos-surface-card-border-hover);
+  box-shadow: var(--eos-shadow-md);
+}
+
+.eos-logo-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .eos-logo-icon {
+  background: #0f172a;
+}
+
+.eos-logo-icon svg {
+  stroke: #ffffff;
+}
+
+.eos-logo {
+  font-family: var(--eos-font-heading);
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--eos-text-primary);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.eos-logo-badge {
+  font-family: var(--eos-font);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
+  border-radius: var(--eos-radius-full);
+  background: rgba(0, 209, 255, 0.15);
+  color: var(--eos-accent-cyan);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+[data-theme="light"] .eos-logo-badge {
+  background: rgba(2, 132, 199, 0.1);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.25);
+}
+
+/* Portfolio Search Bar */
+.eos-search-wrapper {
+  position: relative;
+  flex: 1;
+  max-width: 460px;
+}
+
+.eos-search-input {
+  width: 100%;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-full);
+  padding: 10px 18px 10px 42px;
+  font-family: var(--eos-font);
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--eos-text-primary);
+  outline: none;
+  box-shadow: var(--eos-shadow-sm);
+  transition: all 0.3s var(--eos-ease);
+}
+
+.eos-search-input::placeholder {
+  color: var(--eos-text-tertiary);
+  font-weight: 400;
+}
+
+.eos-search-input:focus {
+  border-color: var(--eos-accent-cyan);
+  background: var(--eos-surface-card-hover);
+  box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.15), var(--eos-shadow-md);
+}
+
+.eos-search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--eos-text-tertiary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eos-search-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-card);
+  box-shadow: var(--eos-shadow-lg);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.eos-search-result-item,
+.eos-search-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--eos-border-subtle);
+  color: var(--eos-text-primary);
+  font-family: var(--eos-font);
+  font-size: 13px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s var(--eos-ease);
+}
+
+.eos-search-result-item:hover,
+.eos-search-item:hover {
+  background: var(--eos-surface-card-hover);
+}
+
+.eos-search-result-item:last-child,
+.eos-search-item:last-child {
+  border-bottom: none;
+}
+
+/* Portfolio Topbar Status Island */
+.eos-topbar-island {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 7px 16px;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-full);
+  box-shadow: var(--eos-shadow-sm);
+}
+
+/* Portfolio Theme Switcher (Matches Portfolio Navbar Moon/Sun Pill) */
+.eos-theme-switcher {
+  display: flex;
+  align-items: center;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 3px;
+  border-radius: var(--eos-radius-full);
+  border: 1px solid var(--eos-surface-panel-border);
+  box-shadow: var(--eos-shadow-sm);
+}
+
+.eos-theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  border-radius: var(--eos-radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--eos-text-tertiary);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s var(--eos-ease);
+}
+
+.eos-theme-btn:hover {
+  color: var(--eos-text-primary);
+}
+
+.eos-theme-btn.active {
+  background: var(--eos-surface-pill-active);
+  color: var(--eos-surface-pill-active-text);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Portfolio Icon Pill Button (e.g. Fullscreen) */
+.eos-glass-pill {
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-full);
+  box-shadow: var(--eos-shadow-sm);
+  color: var(--eos-text-secondary);
+  cursor: pointer;
+  transition: all 0.3s var(--eos-ease);
+}
+
+.eos-glass-pill:hover {
+  transform: translateY(-1px);
+  background: var(--eos-surface-card-hover);
+  color: var(--eos-text-primary);
+  border-color: var(--eos-surface-card-border-hover);
+  box-shadow: var(--eos-shadow-md);
+}
+
+/* ─── Navigation Dock / Sidebar (Matches Portfolio Floating Glass Container) ─ */
+.eos-sidebar-container {
+  position: absolute;
+  left: 18px;
+  top: calc(var(--eos-topbar-height) + 12px);
+  bottom: 20px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.eos-sidebar {
+  width: 210px;
+  max-height: 100%;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-sheet);
+  box-shadow: var(--eos-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  padding: 12px 10px;
+  pointer-events: auto;
+  transition: width 0.3s var(--eos-ease), padding 0.3s var(--eos-ease);
+  overflow: hidden;
+}
+
+.eos-sidebar.collapsed {
+  width: 64px;
+  padding: 12px 7px;
+}
+
+.eos-nav-header {
+  padding: 6px 14px 10px;
+  font-family: var(--eos-font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--eos-text-tertiary);
+}
+
+/* Portfolio Navigation Pill Items */
+.eos-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 9px 14px;
+  border-radius: var(--eos-radius-full);
+  margin: 2px 0;
+  font-family: var(--eos-font);
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--eos-text-secondary);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s var(--eos-ease);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.eos-nav-item:hover {
+  background: var(--eos-surface-pill-hover);
+  color: var(--eos-text-primary);
+  transform: translateX(2px);
+}
+
+/* Active Nav Item: Portfolio Signature Solid Active Pill */
+.eos-nav-item.active {
+  background: var(--eos-surface-pill-active);
+  color: var(--eos-surface-pill-active-text) !important;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  transform: translateX(0);
+}
+
+.eos-nav-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ─── Floating Panels & Sheets (Portfolio Master Container Cards) ─────────── */
+.eos-floating-panel {
+  position: relative;
+  width: 375px;
+  height: 100%;
+  max-width: calc(100vw - 120px);
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-sheet);
+  box-shadow: var(--eos-shadow-lg);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: eos-panel-slide-in 0.3s var(--eos-ease);
+}
+
+@keyframes eos-panel-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.eos-panel-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--eos-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.02);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .eos-panel-header {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.eos-panel-title {
+  font-family: var(--eos-font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--eos-text-primary);
+}
+
+.eos-panel-subtitle {
+  font-family: var(--eos-font);
+  font-size: 12px;
+  color: var(--eos-text-tertiary);
+  margin-top: 3px;
+}
+
+/* ─── Segmented Buttons / Tabs (Portfolio Filter Pill Bar) ────────────────── */
+.eos-segmented-control {
+  display: flex;
+  background: var(--eos-surface-card);
+  padding: 3px;
+  border-radius: var(--eos-radius-full);
+  border: 1px solid var(--eos-surface-card-border);
+  gap: 2px;
+}
+
+.eos-segmented-btn {
+  flex: 1;
+  padding: 6px 14px;
+  font-family: var(--eos-font);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--eos-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--eos-radius-full);
+  cursor: pointer;
+  transition: all 0.25s var(--eos-ease);
+  text-align: center;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.eos-segmented-btn:hover {
+  color: var(--eos-text-primary);
+}
+
+.eos-segmented-btn.active {
+  background: var(--eos-surface-pill-active);
+  color: var(--eos-surface-pill-active-text) !important;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Cards (Signature Portfolio Service / Work Cards) ────────────────────── */
+.eos-card {
+  background: var(--eos-surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--eos-surface-card-border);
+  border-radius: var(--eos-radius-card);
+  padding: 14px 16px;
+  box-shadow: var(--eos-shadow-sm);
+  transition: all 0.3s var(--eos-ease);
+}
+
+.eos-card:hover {
+  transform: translateY(-1px);
+  background: var(--eos-surface-card-hover);
+  border-color: var(--eos-surface-card-border-hover);
+  box-shadow: var(--eos-shadow-md);
+}
+
+.eos-card-header {
+  font-family: var(--eos-font);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--eos-text-tertiary);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eos-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.eos-metric-value {
+  font-family: var(--eos-font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--eos-text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.eos-metric-unit {
+  font-family: var(--eos-font);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--eos-text-tertiary);
+}
+
+/* ─── Inspector Sheet (Flight & Event Details) ────────────────────────────── */
+.eos-inspector-container {
+  position: absolute;
+  right: 18px;
+  top: calc(var(--eos-topbar-height) + 12px);
+  bottom: 20px;
+  width: 410px;
+  max-width: calc(100vw - 36px);
+  z-index: 30;
+  pointer-events: none;
+}
+
+.eos-inspector,
+.eos-inspector-sheet {
+  width: 100%;
+  height: 100%;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-sheet);
+  box-shadow: var(--eos-shadow-sheet);
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  overflow: hidden;
+  animation: eos-sheet-slide-in 0.3s var(--eos-ease);
+}
+
+@keyframes eos-sheet-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.eos-inspector-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--eos-surface-pill);
+  border: 1px solid var(--eos-border-subtle);
+  color: var(--eos-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: all 0.25s var(--eos-ease);
+}
+
+.eos-inspector-close:hover {
+  background: var(--eos-surface-pill-hover);
+  color: var(--eos-text-primary);
+  border-color: var(--eos-border-highlight);
+  transform: scale(1.05);
+}
+
+/* ─── Floating Action Group (Map Controls) ────────────────────────────────── */
+.eos-globe-controls {
+  position: absolute;
+  right: 18px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 20;
+  pointer-events: all;
+}
+
+.eos-control-group {
+  display: flex;
+  flex-direction: column;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-card);
+  box-shadow: var(--eos-shadow-md);
+  overflow: hidden;
+}
+
+.eos-control-btn {
+  width: 42px;
+  height: 42px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--eos-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--eos-text-secondary);
+  transition: all 0.25s var(--eos-ease);
+}
+
+.eos-control-btn:last-child {
+  border-bottom: none;
+}
+
+.eos-control-btn:hover {
+  background: var(--eos-surface-card-hover);
+  color: var(--eos-text-primary);
+}
+
+.eos-control-btn.active {
+  background: var(--eos-surface-pill-active) !important;
+  color: var(--eos-surface-pill-active-text) !important;
+}
+
+/* ─── Badges & Chips (Portfolio Uppercase Tags) ──────────────────────────── */
+.eos-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--eos-radius-full);
+  font-family: var(--eos-font);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.eos-badge-live {
+  background: rgba(0, 209, 255, 0.15);
+  color: var(--eos-accent-cyan);
+  border: 1px solid rgba(0, 209, 255, 0.3);
+}
+
+.eos-badge-cached {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--eos-accent-amber);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.eos-badge-error {
+  background: rgba(244, 63, 94, 0.15);
+  color: var(--eos-accent-rose);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+/* ─── Portfolio Form Inputs (Text, Select, Range) ─────────────────────────── */
+input[type="text"],
+input[type="search"],
+select,
+textarea {
+  font-family: var(--eos-font);
+  background: var(--eos-surface-card);
+  border: 1px solid var(--eos-surface-card-border);
+  border-radius: var(--eos-radius-card);
+  color: var(--eos-text-primary);
+  outline: none;
+  transition: all 0.3s var(--eos-ease);
+}
+
+input[type="text"]:focus,
+input[type="search"]:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--eos-accent-cyan);
+  background: var(--eos-surface-card-hover);
+  box-shadow: 0 0 0 3px rgba(0, 209, 255, 0.15);
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--eos-surface-card);
+  border-radius: var(--eos-radius-full);
+  outline: none;
+  transition: background-color 0.2s var(--eos-ease);
+}
+
+input[type="range"]:hover {
+  background: var(--eos-surface-card-hover);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--eos-surface-pill-active);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.2s var(--eos-ease), box-shadow 0.2s var(--eos-ease);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(0, 209, 255, 0.25);
+}
+
+/* ─── Scrollbars (Portfolio Minimal Styling) ──────────────────────────────── */
+.eos-scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: var(--eos-border-subtle) transparent;
+}
+
+.eos-scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+.eos-scrollable::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.eos-scrollable::-webkit-scrollbar-thumb {
+  background: var(--eos-border-subtle);
+  border-radius: var(--eos-radius-full);
+}
+
+.eos-scrollable::-webkit-scrollbar-thumb:hover {
+  background: var(--eos-border-highlight);
+}
+
+/* ─── Map Flashcards & Popups (Portfolio Glass Style) ─────────────────────── */
+.maplibregl-popup.eos-map-flashcard {
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.maplibregl-popup.eos-map-flashcard .maplibregl-popup-content {
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-card);
+  box-shadow: var(--eos-shadow-lg);
+  padding: 0;
+  overflow: hidden;
+  color: var(--eos-text-primary);
+  min-width: 270px;
+  max-width: 340px;
+}
+
+.maplibregl-popup.eos-map-flashcard .maplibregl-popup-tip {
+  border-top-color: var(--eos-surface-panel);
+  border-bottom-color: var(--eos-surface-panel);
+}
+
+.eos-flashcard {
+  display: flex;
+  flex-direction: column;
+}
+
+.eos-flashcard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px 7px;
+  border-bottom: 1px solid var(--eos-border-subtle);
+}
+
+.eos-flashcard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 8px;
+  border-radius: var(--eos-radius-full);
+  font-family: var(--eos-font);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.eos-flashcard-time {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--eos-text-tertiary);
+}
+
+.eos-flashcard-body {
+  padding: 12px 14px;
+}
+
+.eos-flashcard-title {
+  font-family: var(--eos-font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--eos-text-primary);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.eos-flashcard-location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: var(--eos-text-secondary);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 8px;
+}
+
+.eos-flashcard-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.eos-fc-metric {
+  font-size: 10.5px;
+  color: var(--eos-text-secondary);
+  background: var(--eos-surface-card);
+  padding: 3px 8px;
+  border-radius: var(--eos-radius-xs);
+  border: 1px solid var(--eos-surface-card-border);
+}
+
+.eos-fc-metric strong {
+  color: var(--eos-text-primary);
+}
+
+.eos-flashcard-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--eos-border-subtle);
+  font-size: 11px;
+  color: var(--eos-text-secondary);
+}
+
+.eos-flashcard-action {
+  font-weight: 600;
+  color: var(--eos-accent-cyan);
+}
+
+/* ─── Cursor Telemetry HUD ────────────────────────────────────────────────── */
+.eos-cursor-telemetry-hud {
+  position: absolute;
+  left: 20px;
+  bottom: 28px;
+  z-index: 15;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--eos-surface-panel-border);
+  border-radius: var(--eos-radius-full);
+  box-shadow: var(--eos-shadow-sm);
+  font-family: var(--eos-font-mono);
+  font-size: 11.5px;
+  color: var(--eos-text-secondary);
+}
+
+.eos-hud-pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--eos-accent-cyan);
+  box-shadow: 0 0 8px var(--eos-accent-cyan);
+  flex-shrink: 0;
+}
+
+.eos-hud-divider {
+  width: 1px;
+  height: 14px;
+  background: var(--eos-border-subtle);
+  flex-shrink: 0;
+}
+
+/* ─── Map Layer Control Centre Drawer ─────────────────────────────────────── */
+.eos-layer-control-centre {
+  animation: eos-panel-slide-in 0.3s var(--eos-ease);
+  box-shadow: var(--eos-shadow-sheet);
+  border-radius: var(--eos-radius-sheet);
+}
+
+/* ─── Map Mode Grid Selector ─────────────────────────────────────────────── */
+.eos-map-mode-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.eos-map-mode-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 4px;
+  border-radius: var(--eos-radius-card);
+  background: var(--eos-surface-card);
+  border: 1px solid var(--eos-surface-card-border);
+  cursor: pointer;
+  transition: all 0.25s var(--eos-ease);
+  text-align: center;
+}
+
+.eos-map-mode-card:hover {
+  transform: translateY(-2px);
+  background: var(--eos-surface-card-hover);
+  border-color: var(--eos-surface-card-border-hover);
+}
+
+.eos-map-mode-card.active {
+  background: var(--eos-surface-card-hover);
+  border-color: var(--eos-accent-cyan);
+  box-shadow: 0 0 0 2px rgba(0, 209, 255, 0.2), var(--eos-shadow-sm);
+}
+
+.eos-map-mode-thumb {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--eos-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--eos-surface-card-border);
+}
+
+.eos-map-mode-label {
+  font-family: var(--eos-font);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--eos-text-secondary);
+}
+
+.eos-map-mode-card.active .eos-map-mode-label {
+  color: var(--eos-accent-cyan);
+  font-weight: 700;
+}
+
+/* ─── Location Toast ──────────────────────────────────────────────────────── */
+.eos-location-toast {
+  position: absolute;
+  top: calc(var(--eos-topbar-height) + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: var(--eos-radius-full);
+  background: var(--eos-surface-panel);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--eos-surface-panel-border);
+  box-shadow: var(--eos-shadow-md);
+  font-family: var(--eos-font);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--eos-text-primary);
+  z-index: 90;
+}
+
+/* ─── Responsive Viewports ─────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .eos-sidebar-container {
+    left: 8px;
+    bottom: 8px;
+  }
+  .eos-floating-panel {
+    left: 8px;
+    right: 8px;
+    width: auto;
+    max-width: none;
+    bottom: 8px;
+  }
+  .eos-inspector-container {
+    right: 8px;
+    left: 8px;
+    width: auto;
+    max-width: none;
+    bottom: 8px;
+  }
+}

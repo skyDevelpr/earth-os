@@ -1,26 +1,209 @@
 @import "tailwindcss";
 
+/* 1. Custom Fonts Definition */
+@font-face {
+  font-family: 'twkFont';
+  src: url('/fonts/twk-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'twkFont';
+  src: url('/fonts/twk-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'twkFont';
+  src: url('/fonts/twk-semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'twkFont';
+  src: url('/fonts/twk-semibolditalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'ivoryFont';
+  src: url('/fonts/ivory-mediumitalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'herbikFont';
+  src: url('/fonts/herbik-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'herbikFont';
+  src: url('/fonts/herbik-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'herbikFont';
+  src: url('/fonts/herbik-medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'herbikFont';
+  src: url('/fonts/herbik-mediumitalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* 2. Global Design System Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --brand-dark-blue: #051236;
+  --brand-yellow: #fffde2;
+  --brand-blue: #1740a9;
+
+  --padding-x: 1.6rem;
+  --gap-x: 1.6rem;
+  --row-gap: 2.4rem;
+
+  --easeInOutCubic: cubic-bezier(0.65, 0, 0.35, 1);
+  --easeInOutQuart: cubic-bezier(0.76, 0, 0.24, 1);
+  --easeOutQuart: cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --padding-x: 3.2rem;
+    --gap-x: 2.4rem;
+    --row-gap: 3.2rem;
   }
 }
 
+@media (min-width: 1200px) {
+  :root {
+    --padding-x: 4.8rem;
+    --gap-x: 3.2rem;
+    --row-gap: 3.2rem;
+  }
+}
+
+/* 3. Tailwind v4 Theme Bindings */
+@theme {
+  --color-brand-dark-blue: var(--brand-dark-blue);
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-blue: var(--brand-blue);
+
+  --font-twk: 'twkFont', sans-serif;
+  --font-herbik: 'herbikFont', serif;
+  --font-ivory: 'ivoryFont', serif;
+
+  --ease-in-out-cubic: var(--easeInOutCubic);
+  --ease-in-out-quart: var(--easeInOutQuart);
+  --ease-out-quart: var(--easeOutQuart);
+}
+
+/* 4. Global Elements & Reset styling */
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  background-color: var(--brand-dark-blue);
+  color: var(--brand-yellow);
+  font-family: var(--font-twk);
+  scroll-behavior: auto !important;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.6rem;
+  min-height: 100svh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis scroll styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* 5. Custom Utilities and Micro-interactions */
+.common-link-effect {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.common-link-effect::after {
+  content: '';
+  position: absolute;
+  bottom: -0.1em;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: currentColor;
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.4s var(--easeOutQuart);
+}
+
+.common-link-effect:hover::after {
+  transform: scaleX(1);
+  transform-origin: left center;
+}
+
+.common-link-effect-2 {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Custom noise animation overlay */
+@keyframes tvStatic {
+  0% { background-position: 0 0; }
+  10% { background-position: 10px 20px; }
+  20% { background-position: -20px -10px; }
+  30% { background-position: 30px 40px; }
+  40% { background-position: -40px -30px; }
+  50% { background-position: 50px 10px; }
+  60% { background-position: -10px 50px; }
+  70% { background-position: 20px -20px; }
+  80% { background-position: -30px 30px; }
+  90% { background-position: 40px -40px; }
+  100% { background-position: 0 0; }
+}
+
+.noise-animation {
+  animation: tvStatic 0.5s steps(10) infinite;
+}
+
+/* Hide scrollbar for clean presentation */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
