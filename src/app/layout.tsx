@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./earth-os/earth-os.css";
 
 export const metadata: Metadata = {
   title: "EARTH OS — Planetary Intelligence Platform",
@@ -33,7 +34,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/maplibre-gl.css" />
       </head>
-      <body className="bg-[#0a0c10] text-[#f0f2f5] min-h-screen flex flex-col">
+      <body className="bg-[#0a0c10] text-[#f0f2f5] min-h-screen flex flex-col antialiased selection:bg-[#4facfe]/30 selection:text-white">
         {children}
       </body>
     </html>

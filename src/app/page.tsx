@@ -1,5 +1,12 @@
-import { redirect } from "next/navigation";
+'use client'
 
-export default function Home() {
-  redirect("/earth-os");
+import EarthOsProviders from './earth-os/providers'
+import EarthOsApp from './earth-os/page'
+
+export default function RootEarthOsPage() {
+  return (
+    <EarthOsProviders>
+      <EarthOsApp />
+    </EarthOsProviders>
+  )
 }
